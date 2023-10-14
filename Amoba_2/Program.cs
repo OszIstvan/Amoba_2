@@ -61,33 +61,46 @@ namespace Amoba_2
             }
         }
 
-        public static int KiNyert()
+        public static bool KiNyert()
         {
             // TODO!!!
             //for (int i = 0; i < palya.GetLength(0); i++)
             //{
 
             //}
-            return 0;
+            //return 0;
+            return true;
         }
 
         public static void LepesRegisztral(string lepes)
         {
             //  TODO!!!
-            Console.WriteLine("Léptem");
-            palya[1, 2] = Convert.ToString(aktualisJatekos);
+            //Console.WriteLine("Léptem");
+            //palya[1, 2] = Convert.ToString(aktualisJatekos);
+            string[] Lepes = lepes.Split(' ');
+            string Hlepes = Lepes[0];
+            int HLepes=0;
+            switch (Hlepes)
+            {
+                case "a": HLepes = 0; break;
+                case "b": HLepes = 1; break;
+                case "c": HLepes = 2; break;
+                default: Console.WriteLine("Nem megfelelő adatbevitel!/nKérem próbálja újra!"); break;
+            }
+            int VLepes = Convert.ToInt32(Lepes[1]);
+            palya[HLepes, VLepes] = Convert.ToString(aktualisJatekos); ;
         }
         public static void KovetkezoLepesBeker()
         {
             if (aktualisJatekos == 1) { 
-                Console.WriteLine("Kedves "+Jatekos1+" kérem lépjen!"); 
+                Console.WriteLine("Kedves "+Jatekos1+" kérem lépjen! A mező koordinátáit szóközzel elválasztva adja meg!"); 
                 string lepes=Console.ReadLine();
                 LepesRegisztral(lepes);
                 aktualisJatekos = 2;
             }
             else if (aktualisJatekos == 2)
             {
-                Console.WriteLine("Kedves " + Jatekos2 + " kérem lépjen!");
+                Console.WriteLine("Kedves " + Jatekos2 + " kérem lépjen! A mező koordinátáit szóközzel elválasztva adja meg!");
                 string lepes = Console.ReadLine();
                 LepesRegisztral(lepes);
                 aktualisJatekos = 1;
@@ -103,14 +116,12 @@ namespace Amoba_2
             PalyaInicializal();
             NevBeker();
             DisplayClass();
-            while (KiNyert()!=0)
+            while (KiNyert())
             {
                 KovetkezoLepesBeker();
                 PalyaKirajzol();
             }
             GyoztesDicser();
-            //Még nincs kész!!
-            //Ezt most feltöltöm a GitHubra :)
             Console.ReadKey();
         }
     }
