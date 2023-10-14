@@ -109,6 +109,7 @@ namespace Amoba_2
                 PalyaKirajzol();
             }
             GyoztesDicser();
+            //Még nincs kész!!
             Console.ReadKey();
         }
     }
