@@ -36,6 +36,7 @@ namespace Amoba_2
 
         public static void PalyaKirajzol()
         {
+            Console.Clear();
             for (int i = 0; i < 3; i++)
             {
                 //if (i == 0) { Console.Write("|"); }
@@ -61,15 +62,13 @@ namespace Amoba_2
             }
         }
 
-        public static bool KiNyert()
+        public static int KiNyert()
         {
             // TODO!!!
-            //for (int i = 0; i < palya.GetLength(0); i++)
-            //{
-
-            //}
-            //return 0;
-            return true;
+            int kiNyert = 0;
+            if (palya[0, 0] == "X" && palya[0, 1] == "X" && palya[0, 2] == "X") { kiNyert = 1; }
+            else if (palya[0, 0] == "O" && palya[0, 1] == "O" && palya[0, 2] == "O") { kiNyert = 2; }
+            return kiNyert;
         }
 
         public static void LepesRegisztral(string lepes)
@@ -88,7 +87,7 @@ namespace Amoba_2
                 default: Console.WriteLine("Nem megfelelő adatbevitel!/nKérem próbálja újra!"); break;
             }
             int VLepes = Convert.ToInt32(Lepes[1]);
-            palya[HLepes, VLepes] = Convert.ToString(aktualisJatekos); ;
+            palya[HLepes, VLepes] = Convert.ToString(aktualisJatekos); 
         }
         public static void KovetkezoLepesBeker()
         {
@@ -108,7 +107,7 @@ namespace Amoba_2
         }
         public static void GyoztesDicser()
         {
-            
+            Console.WriteLine("Nagyon szuper vagy!");
         }
 
         static void Main(string[] args)
@@ -116,7 +115,7 @@ namespace Amoba_2
             PalyaInicializal();
             NevBeker();
             DisplayClass();
-            while (KiNyert())
+            while (KiNyert()==0)
             {
                 KovetkezoLepesBeker();
                 PalyaKirajzol();
