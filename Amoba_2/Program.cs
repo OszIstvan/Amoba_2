@@ -110,6 +110,7 @@ namespace Amoba_2
             }
             GyoztesDicser();
             //Még nincs kész!!
+            //Ezt most feltöltöm a GitHubra :)
             Console.ReadKey();
         }
     }
